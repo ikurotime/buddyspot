@@ -1,7 +1,6 @@
 import { useState } from "preact/hooks";
-import Button from "../components/Button.tsx";
 
-export default function LoginForm() {
+export default function RegisterForm() {
   const [loading, setLoading] = useState(false);
   //const { login } = useAuth();
   const [formData, setFormData] = useState({
@@ -15,6 +14,7 @@ export default function LoginForm() {
       [e.target.name]: e.target.value,
     });
   };
+  // TODO: add register function
   const handleLogin = /* async */ (e: { preventDefault: () => void }) => {
     setLoading(true);
     e.preventDefault();
@@ -42,7 +42,14 @@ export default function LoginForm() {
         name="password"
         onChange={onChange}
         type="password"
-        placeholder="strong-password"
+        placeholder="Your password"
+        className="py-2 px-4 rounded-md border border-gray-200"
+      />
+      <input
+        name="repeat_password"
+        onChange={onChange}
+        type="password"
+        placeholder="Repeat you password"
         className="py-2 px-4 rounded-md border border-gray-200"
       />
       <button
@@ -50,28 +57,8 @@ export default function LoginForm() {
         disabled={loading}
         className="bg-yellow-300 dark:bg-yellow-400 p-2 rounded-md "
       >
-        {loading ? <span>loading...</span> : "Sign in"}
+        {loading ? <span>loading...</span> : "Register"}
       </button>
-      <p className="max-w-[30ch] m-auto my-3 text-sm">
-        - Or sign in with-
-      </p>
-      <div className="flex w-full justify-around gap-3  text-white">
-        <Button
-          className="bg-gray-100 text-black"
-          label="Google"
-          loading={loading}
-        />
-        <Button
-          className="bg-blue-400"
-          label="Twitter"
-          loading={loading}
-        />
-        <Button
-          className="bg-gray-900"
-          label="Github"
-          loading={loading}
-        />
-      </div>
     </form>
   );
 }
