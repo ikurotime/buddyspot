@@ -3,14 +3,14 @@
 // This file is automatically updated during development when running `dev.ts`.
 
 import config from "./deno.json" assert { type: "json" };
-import * as $$0 from "./islands/Counter.tsx";
-import * as $$1 from "./islands/LoginForm.tsx";
-import * as $$2 from "./islands/RegisterForm.tsx";
+import * as $0 from "./routes/[name].tsx";
 import * as $1 from "./routes/api/joke.ts";
 import * as $2 from "./routes/auth/login.tsx";
 import * as $3 from "./routes/auth/register.tsx";
 import * as $4 from "./routes/index.tsx";
-import * as $0 from "./routes/[name].tsx";
+import * as $$0 from "./islands/Counter.tsx";
+import * as $$1 from "./islands/LoginForm.tsx";
+import * as $$2 from "./islands/RegisterForm.tsx";
 
 const manifest = {
   routes: {
@@ -23,7 +23,7 @@ const manifest = {
   islands: {
     "./islands/Counter.tsx": $$0,
     "./islands/LoginForm.tsx": $$1,
-    "./islands/RegistrerForm.tsx": $$2,
+    "./islands/RegisterForm.tsx": $$2,
   },
   baseUrl: import.meta.url,
   config,
