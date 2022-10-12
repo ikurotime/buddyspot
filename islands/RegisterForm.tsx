@@ -15,12 +15,23 @@ export default function RegisterForm() {
     });
   };
   // TODO: add register function
-  const handleLogin = /* async */ (e: { preventDefault: () => void }) => {
+  const handleLogin = async (e: { preventDefault: () => void }) => {
     setLoading(true);
     e.preventDefault();
     try {
+      const res = await fetch("/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password,
+        }),
+      });
       //await login(formData.email, formData.password);
-      console.log(formData.email, formData.password);
+
+      const json = await res.json();
     } catch (err: unknown) {
       if (err instanceof Error) {
         throw Error(err?.message);

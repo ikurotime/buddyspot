@@ -1,6 +1,5 @@
 import { useState } from "preact/hooks";
 import Button from "../components/Button.tsx";
-
 export default function LoginForm() {
   const [loading, setLoading] = useState(false);
   //const { login } = useAuth();
@@ -15,20 +14,35 @@ export default function LoginForm() {
       [e.target.name]: e.target.value,
     });
   };
-  const handleLogin = /* async */ (e: { preventDefault: () => void }) => {
+  const handleLogin = async (e: { preventDefault: () => void }) => {
     setLoading(true);
     e.preventDefault();
     try {
-      //await login(formData.email, formData.password);
-      console.log(formData.email, formData.password);
+      //const res = await login(formData.email, formData.password);
+      const res = await fetch("/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password,
+        }),
+      });
+
+      const json = await res.json();
+      const { user } = json;
+      sessionStorage.setItem("user", JSON.stringify(user));
     } catch (err: unknown) {
       if (err instanceof Error) {
+        console.log(err);
         throw Error(err?.message);
       }
     } finally {
       setLoading(false);
     }
   };
+
   return (
     <form className="flex flex-col gap-3 m-3" onSubmit={handleLogin}>
       <input
