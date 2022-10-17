@@ -31,8 +31,15 @@ export default function LoginForm() {
       });
 
       const json = await res.json();
-      const { user } = json;
-      sessionStorage.setItem("user", JSON.stringify(user));
+      console.log(res);
+      const { user, error } = json;
+      if (error) {
+        throw Error(error);
+      }
+      if (user) {
+        sessionStorage.setItem("user", JSON.stringify(user));
+        window.location.href = "/home";
+      }
     } catch (err: unknown) {
       if (err instanceof Error) {
         console.log(err);
@@ -44,7 +51,10 @@ export default function LoginForm() {
   };
 
   return (
-    <form className="flex flex-col gap-3 m-3" onSubmit={handleLogin}>
+    <form
+      className="flex flex-col gap-3 m-3 dark:text-black"
+      onSubmit={handleLogin}
+    >
       <input
         name="email"
         onChange={onChange}

@@ -7,6 +7,9 @@
     "@preact/signals": "https://esm.sh/*@preact/signals@1.0.3",
     "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.0.1",
     "twind": "https://esm.sh/twind@0.16.17",
-    "twind/": "https://esm.sh/twind@0.16.17/"
+    "twind/": "https://esm.sh/twind@0.16.17/",
+    "confetti": "https://cdn.skypack.dev/canvas-confetti",
+    "FontAwesome": "https://cdn.skypack.dev/@fortawesome/react-fontawesome",
+    "FAIcons": "https://cdn.skypack.dev/@fortawesome/free-solid-svg-icons"
   }
 }
