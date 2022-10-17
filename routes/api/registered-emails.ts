@@ -5,11 +5,11 @@ export const handler: Handler = async (req: Request) => {
   const body = await req.json();
   const { email } = body;
 
-  const { statusText } = await supabase.from("registered_emails").insert({
+  const res = await supabase.from("registered_emails").insert({
     email,
   });
 
-  return new Response(JSON.stringify(statusText), {
+  return new Response(JSON.stringify(res), {
     headers: {
       "Content-Type": "application/json",
     },
