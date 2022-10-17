@@ -11,6 +11,6 @@
     "confetti": "https://cdn.skypack.dev/canvas-confetti",
     "FontAwesome": "https://cdn.skypack.dev/@fortawesome/react-fontawesome",
     "FAIcons": "https://cdn.skypack.dev/@fortawesome/free-solid-svg-icons",
-    "supabase": "https://cdn.skypack.dev/@supabase/supabase-js@2.0.0"
+    "supabase": "https://esm.sh/@supabase/supabase-js"
   }
 }
