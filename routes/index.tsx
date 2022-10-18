@@ -38,6 +38,7 @@ export default function Home({ data }: PageProps<UnderConstruction | null>) {
           </div>
         </h1>
       </div>
+      <footer class=" absolute bottom-7 w-full text-center font-bold" >Made with 🤍 by David Huertas</footer>
     </Layout>
   );
 }
