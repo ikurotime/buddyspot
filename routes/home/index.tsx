@@ -1,11 +1,12 @@
-import { Handlers } from "$fresh/server.ts";
+import { Handlers, PageProps } from "$fresh/server.ts";
 
 import Layout from "../../components/Layout.tsx";
 import HomeRooms from "../../islands/HomeRooms.tsx";
 import { getCookies } from "../../utils/cookies.ts";
+import { supabase } from "../../utils/supabaseClient.ts";
 export const handler: Handlers = {
-  GET(req, ctx) {
-    const cookie = getCookies(req.headers)["user"] || null;
+  async GET(req, ctx) {
+    const cookie = getCookies(req.headers)["user"] || "";
     if (!cookie) {
       const domain = req.headers.get("host");
       if (domain === "localhost:8000") {
@@ -13,10 +14,17 @@ export const handler: Handlers = {
       }
       return Response.redirect(`https://${domain}/auth/login/`);
     }
-    return ctx.render(null);
+    const user = cookie ? JSON.parse(cookie) : null;
+    const { data: roomsData, error,status,statusText } = await supabase.from("rooms").select(
+      "*",
+    ).eq(
+      "user_id",
+      user?.id
+    );
+    return ctx.render({user, roomsData});
   },
 };
-export default function index() {
+export default function index({ data }: PageProps) {
   return (
     <Layout centered={false}>
       <div class="h-full flex flex-row">
@@ -36,7 +44,7 @@ export default function index() {
             </a>
           </div>
           <div className="grid w-full h-full">
-            <HomeRooms />
+            <HomeRooms data={data}/>
           </div>
         </div>
       </div>

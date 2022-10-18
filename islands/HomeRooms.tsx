@@ -4,34 +4,18 @@ import { Handlers, PageProps } from "$fresh/server.ts";
 import { useEffect, useState } from "preact/hooks";
 import { getCookies } from "../utils/cookies.ts";
 
-export const handler: Handlers = {
-  GET(req, ctx) {
-    const cookie = getCookies(req.headers)["user"] || null;
-    if (!cookie) {
-      return Response.redirect("http://localhost:8000/auth/login");
-    }
-    return ctx.render(JSON.parse(cookie));
-  },
-};
-export default function HomeRooms({ data }: PageProps) {
+
+export default function HomeRooms({ data }: any) {
   const [isFetching, setIsFetching] = useState<boolean>(true);
   const [rooms, setRooms] = useState<any[]>([]);
   const fetchedRooms: any[] = [];
-  console.log(data);
-  /*   const enterRoom = async (room: any) => {
-    setLoading(true);
-    navigate('/room/' + room.id);
-    dispatch({
-      type: 'SET_ROOM',
-      payload: room
-    });
-    setLoading(false);
-  };
- */
+  //console.log(data);
+ 
   useEffect(() => {
-    const suscription = supabase
-      .from("rooms")
-      .on("*", (payload) => {
+  console.log({data});
+  /* const suscription = supabase
+      .channel("rooms")
+      ._on("*", { event: "*", schema: "*" }, (payload: any) => {
         switch (payload.eventType) {
           case "INSERT":
             setRooms((prev) => [...prev, payload.new]);
@@ -50,11 +34,13 @@ export default function HomeRooms({ data }: PageProps) {
             break;
         }
       })
-      .subscribe();
-    const getRoomInfo = async () => {
-      const { data, error } = await supabase.from("rooms").select("*").eq(
+      .subscribe(); */
+    /* const getRoomInfo = async () => {
+      const { data: roomsData, error } = await supabase.from("rooms").select(
+        "*",
+      ).eq(
         "user_id",
-        user?.id,
+        data?.user?.id,
       );
       if (error) throw new Error(error.message);
       setRooms(data);
@@ -64,15 +50,15 @@ export default function HomeRooms({ data }: PageProps) {
       getRoomInfo();
     }
     return () => {
-      supabase.removeSubscription(suscription);
-    };
+      supabase.removeChannel(suscription);
+    }; */
   }, []);
 
-  if (isFetching) return <h1>Loading...</h1>;
+
 
   return (
     <div className=" flex-1 overflow-y-scroll h-full text-black dark:text-white">
-      {rooms.length === 0
+      {data.roomsData.length === 0
         ? (
           <>
             <h2>Create your first room</h2>
@@ -89,12 +75,12 @@ export default function HomeRooms({ data }: PageProps) {
         )
         : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-6 ">
-            {rooms.map((room: any) => (
+            {data.roomsData.map((room: any) => (
               <div
                 key={room.id}
                 className="w-full max-w-sm h-72 mx-auto relative flex flex-col-reverse rounded-2xl cursor-pointer "
                 onClick={() => {
-                  //enterRoom(room);
+                  window.location.href =  '/room/' + room?.id;
                 }}
               >
                 <img
