@@ -7,7 +7,11 @@ export const handler: Handlers = {
   GET(req, ctx) {
     const cookie = getCookies(req.headers)["user"] || null;
     if (cookie) {
-      return Response.redirect("http://localhost:8000/home/");
+      const domain = req.headers.get("host");
+      if (domain === "localhost:8000") {
+        return Response.redirect("http://localhost:8000/home");
+      }
+      return Response.redirect(`https://${domain}/home`);
     }
     return ctx.render(null);
   },
