@@ -2,16 +2,17 @@ body{
   overflow: hidden;
 }
 main{
-  background-color: #fef3c7;
-opacity: 0.8;
-background-size: 40px 40px;
-background-image: repeating-linear-gradient(45deg, #fff8dc 0, #fff8dc 4px, #fef3c7 0, #fef3c7 50%);
+  background-color: #000000;
+opacity: 1;
+background-image:  radial-gradient(#2c4e39 2px, transparent 2px), radial-gradient(#2c4e39 2px, #000000 2px);
+background-size: 120px 120px;
+background-position: 0 0,60px 60px;
 }
 .glass{
-  background: rgba( 255, 255, 255, 0.25 );
+  background: rgba( 0, 0, 0, 0.25 );
 box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
 backdrop-filter: blur( 4px );
 -webkit-backdrop-filter: blur( 4px );
 
-border: 1px solid rgba( 255, 255, 255, 0.18 );
+border: 1px solid rgba( 0, 0, 0, 0.18 );
 }

@@ -29,7 +29,7 @@ export default function HomeRooms({ data }: HomeData) {
                 }}
               >
                 <img
-                  className="absolute h-full w-full object-cover rounded-2xl border-2 border-yellow-100 dark:border-gray-500"
+                  className="absolute h-full w-full object-cover rounded-2xl border-2 border-gray-500 dark:border-gray-500"
                   src={room.room_bg_image}
                   alt="Default Image"
                 />

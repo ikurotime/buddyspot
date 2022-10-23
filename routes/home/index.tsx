@@ -39,7 +39,7 @@ export default function index({ data }: PageProps) {
   return (
     <Layout centered={false}>
       <div class="h-full flex flex-row">
-        <div className="bg-yellow-200 p-5 rounded-lg h-full border-2 border-yellow-400 shadow fixed sm:relative transition duration-300 -translate-x-[100px] sm:translate-x-0">
+        <div className="bg-gray-700 p-5 rounded-lg h-full shadow fixed sm:relative transition duration-300 -translate-x-[150px] sm:translate-x-0">
           <a className="p-2" href="/home">
             <img src="/home.svg" />
           </a>
@@ -50,7 +50,7 @@ export default function index({ data }: PageProps) {
             <span className="text-3xl font-bold">Home</span>
             <a
               href="/home/create"
-              className="px-5 py-3 rounded bg-yellow-300 hover:bg-yellow-400 transition duration-300"
+              className="px-5 py-3 rounded bg-green-400 hover:bg-green-500 transition duration-300"
             >
               Create a room
             </a>

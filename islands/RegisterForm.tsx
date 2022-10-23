@@ -54,19 +54,19 @@ export default function RegisterForm() {
         onChange={onChange}
         type="password"
         placeholder="Your password"
-        className="py-2 px-4 rounded-md border border-gray-200"
+        className="py-2 px-4 rounded-md border border-gray-200 text-black"
       />
       <input
         name="repeat_password"
         onChange={onChange}
         type="password"
         placeholder="Repeat you password"
-        className="py-2 px-4 rounded-md border border-gray-200"
+        className="py-2 px-4 rounded-md border border-gray-200 text-black "
       />
       <button
         type="submit"
         disabled={loading}
-        className="bg-yellow-300 dark:bg-yellow-400 p-2 rounded-md "
+        className="bg-green-400 text-black p-2 rounded-md "
       >
         {loading ? <span>loading...</span> : "Register"}
       </button>

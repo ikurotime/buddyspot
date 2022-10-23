@@ -24,13 +24,13 @@ export default function Home({ data }: PageProps<UnderConstruction | null>) {
       </nav>
       <div className="container py-16 mx-auto text-center sm:px-4 md:py-32">
         <h1 className="font-extrabold text-4xl leading-10 tracking-tight text-black sm:text-5xl sm:leading-none md:text-6xl xl:text-7xl">
-          <span className="block">BuddySpot</span>
-          <span className="relative inline-block mt-3 text-gray-800 text-2xl sm:text-4xl sm:leading-none md:text-5xl xl:text-6xl">
-            Create and share your virtual room ☕️
+          <span className="block text-gray-200">BuddySpot</span>
+          <span className="relative inline-block mt-3 text-gray-400 text-2xl sm:text-4xl sm:leading-none md:text-5xl xl:text-6xl">
+            Create and share your virtual room ☕️🐸
           </span>
           <div className="flex flex-col items-center gap-5">
             {data?.BUILDING_FLAG && (
-              <span className="relative inline-block mt-3 text-gray-800 text-xl sm:text-2xl sm:leading-none md:text-2xl xl:text-3xl">
+              <span className="relative inline-block mt-3 text-gray-400 text-xl sm:text-2xl sm:leading-none md:text-2xl xl:text-3xl">
                 Website currently under construction &nbsp;🚧👷‍♂️
               </span>
             )}
@@ -38,7 +38,7 @@ export default function Home({ data }: PageProps<UnderConstruction | null>) {
           </div>
         </h1>
       </div>
-      <footer class=" absolute bottom-7 w-full text-center font-bold">
+      <footer class=" absolute bottom-7 w-full text-center font-bold text-gray-300">
         Made with 🤍 by David Huertas
       </footer>
     </Layout>
