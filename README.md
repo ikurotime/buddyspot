@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://svgl.vercel.app/" target="_blank">
-    <img src="https://i.postimg.cc/FKHK8jVz/Screenshot-2022-10-19-at-01-13-16.png" width="800px" alt="Serent Banner" />
+    <img src="https://i.postimg.cc/D0rLt4jQ/Buddy-Spot.png" width="800px" alt="BuddySpot Banner" />
   </a>
 </p>
 
