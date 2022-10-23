@@ -2,7 +2,8 @@ import { Handlers, PageProps } from "$fresh/server.ts";
 
 import Layout from "../../components/Layout.tsx";
 import HomeRooms from "../../islands/HomeRooms.tsx";
-import { getCookies } from "../../utils/cookies.ts";
+import LogoutButton from "../../islands/LogoutButton.tsx";
+import { deleteCookie, getCookies } from "../../utils/cookies.ts";
 import { supabase } from "../../utils/supabaseClient.ts";
 export const handler: Handlers = {
   async GET(req, ctx) {
@@ -15,7 +16,7 @@ export const handler: Handlers = {
       return Response.redirect(`https://${domain}/auth/login/`);
     }
     const user = cookie ? JSON.parse(cookie) : null;
-    const { data: roomsData, error,status,statusText } = await supabase.from("rooms").select(
+    const { data: roomsData } = await supabase.from("rooms").select(
       "*",
     ).eq(
       "user_id",
@@ -23,22 +24,33 @@ export const handler: Handlers = {
     );
     return ctx.render({user, roomsData});
   },
+  POST(req, ctx) {
+    const body1 = JSON.stringify({api:'LOGOUT'});
+    const resp = new Response(body1);
+
+    deleteCookie(resp.headers, "user",{path:"/"});
+    deleteCookie(resp.headers, "supabase.auth.token",{path:"/"});
+    deleteCookie(resp.headers, "supabase.auth.refreshToken",{path:"/"});
+
+  return resp;
+  },
 };
 export default function index({ data }: PageProps) {
   return (
     <Layout centered={false}>
       <div class="h-full flex flex-row">
-        <div className="bg-yellow-200 p-5 rounded-lg h-full border-2 border-yellow-400 shadow fixed sm:relative transition duration-300 -translate-x-[100px] sm:translate-x-0">
+        <div className="bg-gray-700 p-5 rounded-lg h-full shadow fixed sm:relative transition duration-300 -translate-x-[150px] sm:translate-x-0">
           <a className="p-2" href="/home">
             <img src="/home.svg" />
           </a>
+       <LogoutButton/>
         </div>
         <div className="flex flex-col w-full h-full">
           <div class="flex w-full h-16 justify-between px-10 items-center">
             <span className="text-3xl font-bold">Home</span>
             <a
               href="/home/create"
-              className="px-5 py-3 rounded bg-yellow-300 hover:bg-yellow-400 transition duration-300"
+              className="px-5 py-3 rounded bg-green-400 hover:bg-green-500 transition duration-300"
             >
               Create a room
             </a>

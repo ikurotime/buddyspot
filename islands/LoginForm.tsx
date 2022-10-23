@@ -52,7 +52,7 @@ export default function LoginForm() {
 
   return (
     <form
-      className="flex flex-col gap-3 m-3 dark:text-black"
+      className="flex flex-col gap-3 m-3 text-black"
       onSubmit={handleLogin}
     >
       <input
@@ -60,23 +60,23 @@ export default function LoginForm() {
         onChange={onChange}
         type="text"
         placeholder="name@email.com"
-        className="py-2 px-4 rounded-md border border-gray-200"
+        className="py-2 px-4 rounded-md "
       />
       <input
         name="password"
         onChange={onChange}
         type="password"
         placeholder="strong-password"
-        className="py-2 px-4 rounded-md border border-gray-200"
+        className="py-2 px-4 rounded-md "
       />
       <button
         type="submit"
         disabled={loading}
-        className="bg-yellow-300 dark:bg-yellow-400 p-2 rounded-md "
+        className="bg-green-400 p-2 rounded-md text-black"
       >
         {loading ? <span>loading...</span> : "Sign in"}
       </button>
-      <p className="max-w-[30ch] m-auto my-3 text-sm">
+      <p className="max-w-[30ch] m-auto my-3 text-sm text-white">
         - Or sign in with-
       </p>
       <div className="flex w-full justify-around gap-3  text-white">

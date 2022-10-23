@@ -69,7 +69,7 @@ export default function RegisteredEmail() {
             <button
               type="submit"
               disabled={isLoading}
-              className="p-3 rounded-r text-xl bg-gray-600 text-white"
+              className="p-3 rounded-r text-xl bg-green-500 text-white"
             >
               {isLoading ? "Loading..." : "Notify me!"}
             </button>
