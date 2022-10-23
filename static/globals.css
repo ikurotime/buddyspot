@@ -1,3 +1,6 @@
+body{
+  overflow: hidden;
+}
 main{
   background-color: #fef3c7;
 opacity: 0.8;

@@ -2,7 +2,8 @@ import { Handlers, PageProps } from "$fresh/server.ts";
 
 import Layout from "../../components/Layout.tsx";
 import HomeRooms from "../../islands/HomeRooms.tsx";
-import { getCookies } from "../../utils/cookies.ts";
+import LogoutButton from "../../islands/LogoutButton.tsx";
+import { deleteCookie, getCookies } from "../../utils/cookies.ts";
 import { supabase } from "../../utils/supabaseClient.ts";
 export const handler: Handlers = {
   async GET(req, ctx) {
@@ -15,13 +16,23 @@ export const handler: Handlers = {
       return Response.redirect(`https://${domain}/auth/login/`);
     }
     const user = cookie ? JSON.parse(cookie) : null;
-    const { data: roomsData, error,status,statusText } = await supabase.from("rooms").select(
+    const { data: roomsData } = await supabase.from("rooms").select(
       "*",
     ).eq(
       "user_id",
       user?.id
     );
     return ctx.render({user, roomsData});
+  },
+  POST(req, ctx) {
+    const body1 = JSON.stringify({api:'LOGOUT'});
+    const resp = new Response(body1);
+
+    deleteCookie(resp.headers, "user",{path:"/"});
+    deleteCookie(resp.headers, "supabase.auth.token",{path:"/"});
+    deleteCookie(resp.headers, "supabase.auth.refreshToken",{path:"/"});
+
+  return resp;
   },
 };
 export default function index({ data }: PageProps) {
@@ -32,6 +43,7 @@ export default function index({ data }: PageProps) {
           <a className="p-2" href="/home">
             <img src="/home.svg" />
           </a>
+       <LogoutButton/>
         </div>
         <div className="flex flex-col w-full h-full">
           <div class="flex w-full h-16 justify-between px-10 items-center">

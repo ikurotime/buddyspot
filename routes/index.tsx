@@ -24,7 +24,7 @@ export default function Home({ data }: PageProps<UnderConstruction | null>) {
       </nav>
       <div className="container py-16 mx-auto text-center sm:px-4 md:py-32">
         <h1 className="font-extrabold text-4xl leading-10 tracking-tight text-black sm:text-5xl sm:leading-none md:text-6xl xl:text-7xl">
-          <span className="block">Serent</span>
+          <span className="block">BuddySpot</span>
           <span className="relative inline-block mt-3 text-gray-800 text-2xl sm:text-4xl sm:leading-none md:text-5xl xl:text-6xl">
             Create and share your virtual room ☕️
           </span>
@@ -38,7 +38,9 @@ export default function Home({ data }: PageProps<UnderConstruction | null>) {
           </div>
         </h1>
       </div>
-      <footer class=" absolute bottom-7 w-full text-center font-bold" >Made with 🤍 by David Huertas</footer>
+      <footer class=" absolute bottom-7 w-full text-center font-bold">
+        Made with 🤍 by David Huertas
+      </footer>
     </Layout>
   );
 }

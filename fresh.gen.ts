@@ -17,8 +17,9 @@ import * as $$0 from "./islands/Confetti.tsx";
 import * as $$1 from "./islands/Counter.tsx";
 import * as $$2 from "./islands/HomeRooms.tsx";
 import * as $$3 from "./islands/LoginForm.tsx";
-import * as $$4 from "./islands/RegisterForm.tsx";
-import * as $$5 from "./islands/RegisteredEmail.tsx";
+import * as $$4 from "./islands/LogoutButton.tsx";
+import * as $$5 from "./islands/RegisterForm.tsx";
+import * as $$6 from "./islands/RegisteredEmail.tsx";
 
 const manifest = {
   routes: {
@@ -38,8 +39,9 @@ const manifest = {
     "./islands/Counter.tsx": $$1,
     "./islands/HomeRooms.tsx": $$2,
     "./islands/LoginForm.tsx": $$3,
-    "./islands/RegisterForm.tsx": $$4,
-    "./islands/RegisteredEmail.tsx": $$5,
+    "./islands/LogoutButton.tsx": $$4,
+    "./islands/RegisterForm.tsx": $$5,
+    "./islands/RegisteredEmail.tsx": $$6,
   },
   baseUrl: import.meta.url,
   config,
