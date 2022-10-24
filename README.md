@@ -66,6 +66,8 @@ Distributed under the MIT License. See [LICENSE](https://github.com/ikurotime/de
 
 <p><a href="https://github.com/ikurotime/buddyspot/blob/master/code_of_conduct.md"><img width=35% src="https://media.giphy.com/media/qHRwTyhWIj4UU/200w_d.gif"></a></p>
 
+## For contributing guidelines - visit [Contributor.md](https://github.com/ikurotime/buddyspot/blob/master/contribute.md)
+
 ## Repo Status 
 
 ![GitHub PR Open](https://img.shields.io/github/issues-pr/ikurotime/buddyspot?style=for-the-badge&color=aqua)
