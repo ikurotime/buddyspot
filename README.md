@@ -10,7 +10,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/ikurotime/deno-serent)](https://github.com/ikurotime/deno-serent/stargazers)
 [![GitHub license](https://img.shields.io/github/license/ikurotime/deno-serent)](https://github.com/ikurotime/deno-serent/blob/master/LICENSE)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <p align="center"> Create, share your virtual room and study, relax or listen to music together.
@@ -88,6 +88,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tbody>
     <tr>
       <td align="center"><a href="https://medium.com/@pragyasapkota"><img src="https://avatars.githubusercontent.com/u/55945790?v=4?s=100" width="100px;" alt="Pragya Sapkota"/><br /><sub><b>Pragya Sapkota</b></sub></a><br /><a href="https://github.com/ikurotime/buddyspot/commits?author=Pragya2056" title="Documentation">📖</a></td>
+      <td align="center"><a href="https://sarveshpatil29.github.io/profile/"><img src="https://avatars.githubusercontent.com/u/92196450?v=4?s=100" width="100px;" alt="Sarvesh Patil"/><br /><sub><b>Sarvesh Patil</b></sub></a><br /><a href="https://github.com/ikurotime/buddyspot/commits?author=SarveshPatil29" title="Documentation">📖</a></td>
     </tr>
   </tbody>
 </table>
