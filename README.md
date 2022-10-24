@@ -37,13 +37,6 @@ To run this repo, simply clone it and do
 deno task start
 ```
 
-## 🧑‍💻  Contributing
-
-Contributions are awesome and essential in open source software, any kind of pull request or contributions are highly appreciated.
-If you feel like something could be improved, feel free to open an issue or make a pull request directly with the changes.
-
-**Please, make a new branch for each submission**
-
 
 #### Creating A Pull Request
 
@@ -66,6 +59,24 @@ Distributed under the MIT License. See [LICENSE](https://github.com/ikurotime/de
 * Twitter: [@ikurotime](https://twitter.com/ikurotime) 
 * Github: [@ikurotime](https://github.com/ikurotime)
 * LinkedIn: [@david-huertas-ortiz](https://linkedin.com/in/david-huertas-ortiz)
+
+## Code Of Conduct
+
+`CTRL+click` the GIF below
+
+<p><a href="https://github.com/ikurotime/buddyspot/blob/master/code_of_conduct.md"><img width=35% src="https://media.giphy.com/media/qHRwTyhWIj4UU/200w_d.gif"></a></p>
+
+## Repo Status 
+
+![GitHub PR Open](https://img.shields.io/github/issues-pr/ikurotime/buddyspot?style=for-the-badge&color=aqua)
+![GitHub PR closed](https://img.shields.io/github/issues-pr-closed-raw/ikurotime/buddyspot?style=for-the-badge&color=blue)
+![GitHub language count](https://img.shields.io/github/languages/count/ikurotime/buddyspot?style=for-the-badge&color=brightgreen)
+
+## Our contributors
+
+<a href="https://github.com/ikurotime/buddyspot/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=ikurotime/buddyspot" />
+</a>
 
 ## ❤️ Show your support
 
