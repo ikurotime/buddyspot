@@ -9,7 +9,9 @@
 [![GitHub issues](https://img.shields.io/github/issues/ikurotime/deno-serent)](https://github.com/ikurotime/deno-serent/issues)
 [![GitHub stars](https://img.shields.io/github/stars/ikurotime/deno-serent)](https://github.com/ikurotime/deno-serent/stargazers)
 [![GitHub license](https://img.shields.io/github/license/ikurotime/deno-serent)](https://github.com/ikurotime/deno-serent/blob/master/LICENSE)
-
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <p align="center"> Create, share your virtual room and study, relax or listen to music together.
 </p>
@@ -74,12 +76,26 @@ Distributed under the MIT License. See [LICENSE](https://github.com/ikurotime/de
 ![GitHub PR closed](https://img.shields.io/github/issues-pr-closed-raw/ikurotime/buddyspot?style=for-the-badge&color=blue)
 ![GitHub language count](https://img.shields.io/github/languages/count/ikurotime/buddyspot?style=for-the-badge&color=brightgreen)
 
-## Our contributors
 
-<a href="https://github.com/ikurotime/buddyspot/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=ikurotime/buddyspot" />
-</a>
+## Contributors ✨
 
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center"><a href="https://medium.com/@pragyasapkota"><img src="https://avatars.githubusercontent.com/u/55945790?v=4?s=100" width="100px;" alt="Pragya Sapkota"/><br /><sub><b>Pragya Sapkota</b></sub></a><br /><a href="https://github.com/ikurotime/buddyspot/commits?author=Pragya2056" title="Documentation">📖</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
 ## ❤️ Show your support
 
 Give a ⭐️ if this project helped you!
@@ -91,3 +107,6 @@ Give a ⭐️ if this project helped you!
  
 ***
 
+
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
