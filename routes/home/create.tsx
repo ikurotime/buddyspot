@@ -1,5 +1,6 @@
-import { Handlers } from "$fresh/server.ts";
+import { Handlers, PageProps } from "$fresh/server.ts";
 import Layout from "../../components/Layout.tsx";
+import CreateRoom from "../../islands/CreateRoom.tsx";
 import { getCookies } from "../../utils/cookies.ts";
 const TEMPLATES = [
   /*   {
@@ -37,10 +38,11 @@ export const handler: Handlers = {
     if (!cookie) {
       return Response.redirect("http://localhost:8000/auth/login");
     }
-    return ctx.render(null);
+    const user = JSON.parse(cookie);
+    return ctx.render({ user });
   },
 };
-export default function create() {
+export default function create({ data }: PageProps) {
   return (
     <Layout centered>
       <div className="bg-white dark:bg-gray-800 dark:text-white  w-[90vw] h-[90vh] px-5 py-10 rounded-xl text-center shadow-lg">
@@ -67,24 +69,10 @@ export default function create() {
             </div>
 
             {TEMPLATES.map((template: any) => (
-              <div
-                key={template.id}
-                className="w-full max-w-sm h-72 border mx-auto relative flex flex-col-reverse cursor-pointer rounded-2xl"
-                onClick={() => {
-                  //createRoom(template);
-                }}
-              >
-                <img
-                  className="absolute h-full w-full object-cover  rounded-2xl"
-                  src={template.image}
-                  alt="Default Image"
-                />
-
-                <div className="text-white bg-white dark:bg-black bg-opacity-30 dark:bg-opacity-30  p-4 rounded-b-2xl glass ">
-                  <h5>{template.title}</h5>
-                  <h6>{template.description}</h6>
-                </div>
-              </div>
+              <CreateRoom
+                template={template}
+                data={data}
+              />
             ))}
           </div>
         </div>
