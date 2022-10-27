@@ -13,7 +13,7 @@ export const handler: Handlers = {
       }
       return Response.redirect(`https://${domain}/home`);
     }
-    return ctx.render(null);
+    return ctx.render();
   },
 };
 export default function login() {
