@@ -20,19 +20,20 @@ export const handler: Handlers = {
       "*",
     ).eq(
       "user_id",
-      user?.id
+      user?.id,
     );
-    return ctx.render({user, roomsData});
+
+    return ctx.render({ user, roomsData });
   },
   POST(req, ctx) {
-    const body1 = JSON.stringify({api:'LOGOUT'});
+    const body1 = JSON.stringify({ api: "LOGOUT" });
     const resp = new Response(body1);
 
-    deleteCookie(resp.headers, "user",{path:"/"});
-    deleteCookie(resp.headers, "supabase.auth.token",{path:"/"});
-    deleteCookie(resp.headers, "supabase.auth.refreshToken",{path:"/"});
+    deleteCookie(resp.headers, "user", { path: "/" });
+    deleteCookie(resp.headers, "supabase.auth.token", { path: "/" });
+    deleteCookie(resp.headers, "supabase.auth.refreshToken", { path: "/" });
 
-  return resp;
+    return resp;
   },
 };
 export default function index({ data }: PageProps) {
@@ -43,7 +44,7 @@ export default function index({ data }: PageProps) {
           <a className="p-2" href="/home">
             <img src="/home.svg" />
           </a>
-       <LogoutButton/>
+          <LogoutButton />
         </div>
         <div className="flex flex-col w-full h-full">
           <div class="flex w-full h-16 justify-between px-10 items-center">
@@ -55,8 +56,8 @@ export default function index({ data }: PageProps) {
               Create a room
             </a>
           </div>
-          <div className="grid w-full h-full">
-            <HomeRooms data={data}/>
+          <div className="grid w-full h-full overflow-y-auto">
+            <HomeRooms data={data} />
           </div>
         </div>
       </div>

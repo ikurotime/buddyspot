@@ -2,7 +2,7 @@ import { dbRoom, HomeData } from "../types/index.ts";
 
 export default function HomeRooms({ data }: HomeData) {
   return (
-    <div className=" flex-1  h-full text-black dark:text-white">
+    <div className=" flex-1  h-full text-black dark:text-white ">
       {data.roomsData.length === 0
         ? (
           <>
@@ -10,7 +10,7 @@ export default function HomeRooms({ data }: HomeData) {
             <button
               className="text-white"
               onClick={() => {
-                //navigate('/home/create');
+                //TODO: create room
               }}
             >
               {" "}
@@ -23,7 +23,7 @@ export default function HomeRooms({ data }: HomeData) {
             {data.roomsData.map((room: dbRoom) => (
               <div
                 key={room.id}
-                className="w-full max-w-sm h-72 mx-auto relative flex flex-col-reverse rounded-2xl cursor-pointer "
+                className="w-full max-w-sm h-72 mx-auto relative flex flex-col-reverse rounded-2xl cursor-pointer"
                 onClick={() => {
                   window.location.href = "/room/" + room?.id;
                 }}
