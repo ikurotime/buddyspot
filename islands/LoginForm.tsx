@@ -33,8 +33,8 @@ export default function LoginForm() {
       });
 
       const json = await res.json();
-      console.log(json);
-      const { user, error, status, message} = json;
+
+      const { user, error, status, message } = json;
 
       if (status === 400) {
         setError(message);
@@ -64,70 +64,26 @@ export default function LoginForm() {
         onChange={onChange}
         type="text"
         placeholder="name@email.com"
-        className={"py-2 px-4 rounded-md bg-gray-600" + (error ? " border border-red-500" : "")}
+        className={"py-2 px-4 rounded-md bg-gray-600" +
+          (error ? " border border-red-500" : "")}
       />
       <input
         name="password"
         onChange={onChange}
         type="password"
         placeholder="strong-password"
-        className={"py-2 px-4 rounded-md bg-gray-600" + (error ? " border border-red-500" : "")}
+        className={"py-2 px-4 rounded-md bg-gray-600" +
+          (error ? " border border-red-500" : "")}
       />
       {error && <p className="text-red-500">{error}</p>}
       <button
         type="submit"
         disabled={loading}
-        className={"bg-green-400 p-2 rounded-md text-black w-24 self-end" + (loading ? " opacity-50" : "")}
+        className={"bg-green-400 p-2 rounded-md text-black w-24 self-end" +
+          (loading ? " opacity-50" : "")}
       >
         {loading ? <span>loading...</span> : "Sign in"}
       </button>
-      {/* <p className="max-w-[30ch] m-auto my-3 text-sm text-white">
-        - Or sign in with-
-      </p>
-      <div className="flex w-full justify-around gap-3  text-white">
-        <Button
-          className="bg-gray-100 text-black"
-          label="Google"
-          loading={loading}
-          onClick={() => {
-            fetch("/auth/login/", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                },
-                body: JSON.stringify({provider: "google"})
-                });
-          }}
-        />
-        <Button
-          className="bg-blue-400"
-          label="Twitter"
-          loading={loading}
-          onClick={() => {
-            fetch("/auth/login/", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                },
-                body: JSON.stringify({provider: "twitter"})
-                });
-          }}
-        />
-        <Button
-          className="bg-gray-900"
-          label="Github"
-          loading={loading}
-          onClick={() => {
-            fetch("/auth/login/", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                },
-                body: JSON.stringify({provider: "github"})
-                });
-          }}
-        />
-      </div> */}
     </form>
   );
 }
