@@ -1,3 +1,4 @@
+import { User } from "https://esm.sh/v96/@supabase/gotrue-js@2.0.1/dist/module/index.d.ts";
 export type Room = {
   id?: string;
   title: any;
@@ -47,3 +48,7 @@ export type HomeData = {
     user: dbUser;
   };
 };
+
+export interface State {
+  user: User | null;
+}

@@ -3,7 +3,7 @@ import { dbRoom, HomeData } from "../types/index.ts";
 export default function HomeRooms({ data }: HomeData) {
   return (
     <div className=" flex-1  h-full text-black dark:text-white ">
-      {data.roomsData.length === 0
+      {data?.roomsData?.length === 0
         ? (
           <>
             <h2>Create your first room</h2>
@@ -20,11 +20,13 @@ export default function HomeRooms({ data }: HomeData) {
         )
         : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-6 ">
-            {data.roomsData.map((room: dbRoom) => (
+            {data?.roomsData?.map((room: dbRoom) => (
               <div
                 key={room.id}
                 className="w-full max-w-sm h-72 mx-auto relative flex flex-col-reverse rounded-2xl cursor-pointer"
                 onClick={() => {
+                  console.log("/room/" + room?.id);
+
                   window.location.href = "/room/" + room?.id;
                 }}
               >
