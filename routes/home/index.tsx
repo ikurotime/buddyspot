@@ -1,21 +1,16 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
+import { User } from "https://esm.sh/v96/@supabase/gotrue-js@2.0.1/dist/module/index.d.ts";
 
 import Layout from "../../components/Layout.tsx";
 import HomeRooms from "../../islands/HomeRooms.tsx";
 import LogoutButton from "../../islands/LogoutButton.tsx";
-import { deleteCookie, getCookies } from "../../utils/cookies.ts";
+import { State } from "../../types/index.ts";
+import { deleteCookie } from "../../utils/cookies.ts";
 import { supabase } from "../../utils/supabaseClient.ts";
-export const handler: Handlers = {
-  async GET(req, ctx) {
-    const cookie = getCookies(req.headers)["user"] || "";
-    if (!cookie) {
-      const domain = req.headers.get("host");
-      if (domain === "localhost:8000") {
-        return Response.redirect("http://localhost:8000/auth/login/");
-      }
-      return Response.redirect(`https://${domain}/auth/login/`);
-    }
-    const user = cookie ? JSON.parse(cookie) : null;
+
+export const handler: Handlers<unknown, State> = {
+  async GET(_, ctx) {
+    const user: User | null = ctx.state.user;
     const { data: roomsData } = await supabase.from("rooms").select(
       "*",
     ).eq(
@@ -28,8 +23,7 @@ export const handler: Handlers = {
   POST(req, ctx) {
     const body1 = JSON.stringify({ api: "LOGOUT" });
     const resp = new Response(body1);
-
-    deleteCookie(resp.headers, "user", { path: "/" });
+    supabase.auth.signOut();
     deleteCookie(resp.headers, "supabase.auth.token", { path: "/" });
     deleteCookie(resp.headers, "supabase.auth.refreshToken", { path: "/" });
 
@@ -51,7 +45,7 @@ export default function index({ data }: PageProps) {
             <span className="text-3xl font-bold">Home</span>
             <a
               href="/home/create"
-              className="px-5 py-3 rounded bg-green-400 hover:bg-green-500 transition duration-300"
+              className="px-5 py-3 transition duration-300 bg-green-400 rounded hover:bg-green-500"
             >
               Create a room
             </a>

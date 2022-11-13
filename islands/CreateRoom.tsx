@@ -17,23 +17,23 @@ export default function CreateRoom({ template, data }: Props) {
       }),
     });
     const json = await res.json();
-    window.location.href = `/room/${json.id}`;
+    window.location.href = `/home/room/${json.id}`;
   };
   return (
     <div
       key={template.id}
-      className="w-full max-w-sm h-72 border mx-auto relative flex flex-col-reverse cursor-pointer rounded-2xl"
+      className="relative flex flex-col-reverse w-full max-w-sm mx-auto border cursor-pointer h-72 rounded-2xl"
       onClick={() => {
         createRoom(template);
       }}
     >
       <img
-        className="absolute h-full w-full object-cover  rounded-2xl"
+        className="absolute object-cover w-full h-full rounded-2xl"
         src={template.image}
         alt="Default Image"
       />
 
-      <div className="text-white bg-white dark:bg-black bg-opacity-30 dark:bg-opacity-30  p-4 rounded-b-2xl glass ">
+      <div className="p-4 text-white bg-white dark:bg-black bg-opacity-30 dark:bg-opacity-30 rounded-b-2xl glass ">
         <h5>{template.title}</h5>
         <h6>{template.description}</h6>
       </div>

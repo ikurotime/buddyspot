@@ -9,6 +9,6 @@
     "twind": "https://esm.sh/twind@0.16.17",
     "twind/": "https://esm.sh/twind@0.16.17/",
     "confetti": "https://cdn.skypack.dev/canvas-confetti",
-    "supabase": "https://esm.sh/@supabase/supabase-js"
+    "supabase": "https://esm.sh/@supabase/supabase-js@latest"
   }
 }
