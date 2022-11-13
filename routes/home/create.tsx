@@ -1,6 +1,9 @@
-import { Handlers } from "$fresh/server.ts";
+import { Handlers, PageProps } from "$fresh/server.ts";
+
 import Layout from "../../components/Layout.tsx";
-import { getCookies } from "../../utils/cookies.ts";
+import CreateRoom from "../../islands/CreateRoom.tsx";
+import { State } from "../../types/index.ts";
+
 const TEMPLATES = [
   /*   {
     id: '1',
@@ -31,16 +34,13 @@ const TEMPLATES = [
       "https://ljgeixztpzcldgicupdn.supabase.co/storage/v1/object/sign/background-images/city.jpeg?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJiYWNrZ3JvdW5kLWltYWdlcy9jaXR5LmpwZWciLCJpYXQiOjE2NjI5NTM0NzIsImV4cCI6MTk3ODMxMzQ3Mn0.6xsISjBF90Ux54ZUywbCRNexXPujKSKFnoggmkcgol8",
   },
 ];
-export const handler: Handlers = {
+export const handler: Handlers<unknown, State> = {
   GET(req, ctx) {
-    const cookie = getCookies(req.headers)["user"] || null;
-    if (!cookie) {
-      return Response.redirect("http://localhost:8000/auth/login");
-    }
-    return ctx.render(null);
+    const user = ctx.state.user;
+    return ctx.render({ user });
   },
 };
-export default function create() {
+export default function create({ data }: PageProps) {
   return (
     <Layout centered>
       <div className="bg-white dark:bg-gray-800 dark:text-white  w-[90vw] h-[90vh] px-5 py-10 rounded-xl text-center shadow-lg">
@@ -52,14 +52,14 @@ export default function create() {
             Choose a room that matches your mood from the templates. Or create
             your from scratch!
           </h2>
-          <div className="grid p-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-2 justify-center ">
-            <div className="w-full max-w-sm h-72 border mx-auto relative flex flex-col-reverse cursor-pointer rounded-2xl">
-              <div className="absolute object-cover  rounded-2xl w-full h-full grid place-content-center bg-gradient-to-tr from-purple-600 to-blue-600 rounded-t-xl">
+          <div className="grid justify-center grid-cols-1 gap-2 p-10 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
+            <div className="relative flex flex-col-reverse w-full max-w-sm mx-auto border cursor-pointer h-72 rounded-2xl">
+              <div className="absolute grid object-cover w-full h-full rounded-2xl place-content-center bg-gradient-to-tr from-purple-600 to-blue-600 rounded-t-xl">
                 {/* <BiHelpCircle size={80} color="white" /> */}
                 <img src="/question-mark.png" alt="Question mark" />
               </div>
               <div>
-                <div className="text-white bg-white dark:bg-black bg-opacity-30 dark:bg-opacity-30  p-4 rounded-b-2xl glass">
+                <div className="p-4 text-white bg-white dark:bg-black bg-opacity-30 dark:bg-opacity-30 rounded-b-2xl glass">
                   <h5>🔃 Random</h5>
                   <h6>Let us choose for you!</h6>
                 </div>
@@ -67,24 +67,10 @@ export default function create() {
             </div>
 
             {TEMPLATES.map((template: any) => (
-              <div
-                key={template.id}
-                className="w-full max-w-sm h-72 border mx-auto relative flex flex-col-reverse cursor-pointer rounded-2xl"
-                onClick={() => {
-                  //createRoom(template);
-                }}
-              >
-                <img
-                  className="absolute h-full w-full object-cover  rounded-2xl"
-                  src={template.image}
-                  alt="Default Image"
-                />
-
-                <div className="text-white bg-white dark:bg-black bg-opacity-30 dark:bg-opacity-30  p-4 rounded-b-2xl glass ">
-                  <h5>{template.title}</h5>
-                  <h6>{template.description}</h6>
-                </div>
-              </div>
+              <CreateRoom
+                template={template}
+                data={data}
+              />
             ))}
           </div>
         </div>

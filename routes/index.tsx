@@ -38,7 +38,7 @@ export default function Home({ data }: PageProps<UnderConstruction | null>) {
           </div>
         </h1>
       </div>
-      <footer class=" absolute bottom-7 w-full text-center font-bold text-gray-300">
+      <footer class=" bottom-7 m-auto text-center font-bold text-gray-300">
         Made with 🤍 by David Huertas
       </footer>
     </Layout>

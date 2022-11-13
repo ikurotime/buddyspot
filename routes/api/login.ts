@@ -12,21 +12,20 @@ export const handler: Handler = async (req: Request) => {
   if (error) {
     return new Response(JSON.stringify(error));
   }
-  const defaultProps = `HttpOnly; Path=/; SameSite=Lax; Max-Age=604800; Expires=${new Date( Date.now() + 604800000).toUTCString()};`
+  const defaultProps =
+    `HttpOnly; Path=/; SameSite=Lax; Max-Age=604800; Expires=${
+      new Date(Date.now() + 604800000).toUTCString()
+    };`;
   const response = new Response(JSON.stringify(data), {
     headers: {
       "Content-Type": "application/json",
       "set-cookie":
-        `supabase.auth.token=${data.session?.access_token}; ${defaultProps} }`, 
+        `supabase.auth.token=${data.session?.access_token}; ${defaultProps} }`,
     },
   });
   response.headers.append(
     "set-cookie",
     `supabase.auth.refreshToken=${data.session?.refresh_token}; ${defaultProps};`,
-  );
-  response.headers.append(
-    "set-cookie",
-    `user=${JSON.stringify(data.user)}; ${defaultProps};`,
   );
 
   return response;

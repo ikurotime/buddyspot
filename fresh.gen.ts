@@ -4,44 +4,60 @@
 
 import config from "./deno.json" assert { type: "json" };
 import * as $0 from "./routes/_404.tsx";
-import * as $1 from "./routes/api/login.ts";
-import * as $2 from "./routes/api/register.ts";
-import * as $3 from "./routes/api/registered-emails.ts";
-import * as $4 from "./routes/auth/login.tsx";
-import * as $5 from "./routes/auth/register.tsx";
-import * as $6 from "./routes/home/create.tsx";
-import * as $7 from "./routes/home/index.tsx";
-import * as $8 from "./routes/index.tsx";
-import * as $9 from "./routes/room/[name].tsx";
+import * as $1 from "./routes/_middleware.ts";
+import * as $2 from "./routes/api/create-offer.ts";
+import * as $3 from "./routes/api/create-room.ts";
+import * as $4 from "./routes/api/login.ts";
+import * as $5 from "./routes/api/register.ts";
+import * as $6 from "./routes/api/registered-emails.ts";
+import * as $7 from "./routes/auth/_middleware.ts";
+import * as $8 from "./routes/auth/login.tsx";
+import * as $9 from "./routes/auth/register.tsx";
+import * as $10 from "./routes/home/_middleware.tsx";
+import * as $11 from "./routes/home/create.tsx";
+import * as $12 from "./routes/home/index.tsx";
+import * as $13 from "./routes/home/room/[name].tsx";
+import * as $14 from "./routes/index.tsx";
 import * as $$0 from "./islands/Confetti.tsx";
 import * as $$1 from "./islands/Counter.tsx";
-import * as $$2 from "./islands/HomeRooms.tsx";
-import * as $$3 from "./islands/LoginForm.tsx";
-import * as $$4 from "./islands/LogoutButton.tsx";
-import * as $$5 from "./islands/RegisterForm.tsx";
-import * as $$6 from "./islands/RegisteredEmail.tsx";
+import * as $$2 from "./islands/CreateRoom.tsx";
+import * as $$3 from "./islands/EnterRoomScreen.tsx";
+import * as $$4 from "./islands/HomeRooms.tsx";
+import * as $$5 from "./islands/LocalVideo.tsx";
+import * as $$6 from "./islands/LoginForm.tsx";
+import * as $$7 from "./islands/LogoutButton.tsx";
+import * as $$8 from "./islands/RegisterForm.tsx";
+import * as $$9 from "./islands/RegisteredEmail.tsx";
 
 const manifest = {
   routes: {
     "./routes/_404.tsx": $0,
-    "./routes/api/login.ts": $1,
-    "./routes/api/register.ts": $2,
-    "./routes/api/registered-emails.ts": $3,
-    "./routes/auth/login.tsx": $4,
-    "./routes/auth/register.tsx": $5,
-    "./routes/home/create.tsx": $6,
-    "./routes/home/index.tsx": $7,
-    "./routes/index.tsx": $8,
-    "./routes/room/[name].tsx": $9,
+    "./routes/_middleware.ts": $1,
+    "./routes/api/create-offer.ts": $2,
+    "./routes/api/create-room.ts": $3,
+    "./routes/api/login.ts": $4,
+    "./routes/api/register.ts": $5,
+    "./routes/api/registered-emails.ts": $6,
+    "./routes/auth/_middleware.ts": $7,
+    "./routes/auth/login.tsx": $8,
+    "./routes/auth/register.tsx": $9,
+    "./routes/home/_middleware.tsx": $10,
+    "./routes/home/create.tsx": $11,
+    "./routes/home/index.tsx": $12,
+    "./routes/home/room/[name].tsx": $13,
+    "./routes/index.tsx": $14,
   },
   islands: {
     "./islands/Confetti.tsx": $$0,
     "./islands/Counter.tsx": $$1,
-    "./islands/HomeRooms.tsx": $$2,
-    "./islands/LoginForm.tsx": $$3,
-    "./islands/LogoutButton.tsx": $$4,
-    "./islands/RegisterForm.tsx": $$5,
-    "./islands/RegisteredEmail.tsx": $$6,
+    "./islands/CreateRoom.tsx": $$2,
+    "./islands/EnterRoomScreen.tsx": $$3,
+    "./islands/HomeRooms.tsx": $$4,
+    "./islands/LocalVideo.tsx": $$5,
+    "./islands/LoginForm.tsx": $$6,
+    "./islands/LogoutButton.tsx": $$7,
+    "./islands/RegisterForm.tsx": $$8,
+    "./islands/RegisteredEmail.tsx": $$9,
   },
   baseUrl: import.meta.url,
   config,
